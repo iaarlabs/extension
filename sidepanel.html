@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Lovable Control</title>
+  <link rel="stylesheet" href="sidepanel.css">
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <div class="logo">✦</div>
+      <div>
+        <h1>Lovable Control</h1>
+        <span>MVP · cambios directos al repo</span>
+      </div>
+    </div>
+    <button id="settingsBtn" class="icon">⚙</button>
+  </header>
+
+  <main>
+    <section id="setupCard" class="card hidden">
+      <h2>Conecta tu proyecto</h2>
+      <p>El MVP usa GitHub como puente. Tu proyecto debe estar sincronizado con Lovable.</p>
+      <label>GitHub token
+        <input id="githubToken" type="password" placeholder="ghp_...">
+      </label>
+      <div class="grid2">
+        <label>Owner
+          <input id="owner" placeholder="usuario o organización">
+        </label>
+        <label>Repositorio
+          <input id="repo" placeholder="mi-proyecto">
+        </label>
+      </div>
+      <label>Rama
+        <input id="branch" value="main">
+      </label>
+      <label>Gemini API key
+        <input id="geminiKey" type="password" placeholder="AIza...">
+      </label>
+      <button id="saveSettings" class="primary">Guardar configuración</button>
+      <small>Las claves se guardan localmente en Chrome. No se envían a ningún servidor propio.</small>
+    </section>
+
+    <section id="projectCard" class="card">
+      <div class="projectLine">
+        <div>
+          <span class="muted">Proyecto</span>
+          <strong id="projectName">Sin configurar</strong>
+        </div>
+        <button id="editSettings" class="smallBtn">Editar</button>
+      </div>
+      <div id="status" class="status">Configura el proyecto para empezar.</div>
+    </section>
+
+    <section class="card promptCard">
+      <label for="instruction">¿Qué quieres cambiar?</label>
+      <textarea id="instruction" rows="7"
+        placeholder="Ejemplo: Haz la portada más premium, reduce el tamaño de las imágenes y mantén exactamente el contenido y la estructura actual."></textarea>
+
+      <div class="actions">
+        <button id="analyze" class="secondary">Analizar cambios</button>
+        <button id="apply" class="primary" disabled>Aplicar cambios</button>
+      </div>
+    </section>
+
+    <section id="planCard" class="card hidden">
+      <h2>Plan de cambios</h2>
+      <div id="plan"></div>
+    </section>
+
+    <section id="logCard" class="card hidden">
+      <h2>Resultado</h2>
+      <pre id="log"></pre>
+    </section>
+  </main>
+
+  <script src="sidepanel.js"></script>
+</body>
+</html>
